@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang='el'>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Θέματα πανελλαδικών</title>
+
+  <link rel="stylesheet" href="index.css">
+
+  <link rel="icon" href="./figures/favicon.svg">
+
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel=stylesheet type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel=stylesheet type='text/css'>
+
+  <script src="load-mathjax.js" async></script>
+
+</head>
+
+
+<body>
+
+
+
+  <div class="container">
+
+    <h1>Θέματα πανελλαδικών</h1>
+    <div id="entrypoint"></div>
+
+  </div>
+
+  <script type="module">
+    import mathData from './dataPAN.js';
+
+    let node = document.getElementById('entrypoint');
+
+    for (let i = 0; i < mathData.length; i++) {
+      let newThema = document.createElement("div");
+      let olist = document.createElement("ol");
+
+      newThema.dataset.text = mathData[i].year + "-" + mathData[i].thema;
+      newThema.className = "thema";
+
+      let intro = document.createElement("p");
+      intro.innerText = mathData[i].intro;
+      newThema.appendChild(intro);
+
+      // figure
+      if (mathData[i].figure) {
+        let thefigure = document.createElement("object");
+        thefigure.type = "image/svg+xml";
+        thefigure.data = "./figures/" + mathData[i].figure;
+        newThema.appendChild(thefigure);
+      }
+
+      for (let j = 0; j < mathData[i].items.length; j++) {
+        let item = document.createElement("li");
+        item.innerText = mathData[i].items[j].Qs;
+        olist.appendChild(item);
+      }
+      newThema.appendChild(olist);
+
+      node.appendChild(newThema);
+
+    }
+  </script>
+
+
+
+</body>
+
+</html>

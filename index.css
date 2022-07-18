@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6em;
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.container {
+  max-width: 580px;
+  min-width: 320px;
+  margin: 1.5em 5px 2em 5px; /* top right bottom left */
+}
+
+ol {
+  list-style-position: inside;
+}
+
+ol > li::marker {
+  font-weight: bold;
+}
+
+ol > li {
+  margin-bottom: .5em;
+  margin-top: .5em;
+}
+
+/*
+.MathJax {
+font-size: 14px;
+}
+*/
+
+.thema {
+display: block;
+}
+.thema:before {
+content: "Θεμα. ";
+font-weight: bold;
+font-style: normal;
+}
+.thema[data-text]:before {
+content: "Θεμα (" attr(data-text) "). ";
+}
